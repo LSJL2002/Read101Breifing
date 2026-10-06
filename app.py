@@ -25,6 +25,8 @@ if uploaded_file is not None:
 
         # Filter for kids with 5 sessions or less remaining, but ensuring they have a valid 'Total' session count > 0
         kids_filtered = df[(df['Duration_days'] <= 14) & (df['Total'] > 0)]
+
+        kids_filtered = kids_filtered.sort_values(by='Duration_days', ascending=True)
         
         # Keep relevant columns for clear presentation
         columns_to_show = ['Name', 'English Name', 'School', 'Grade', 'Total', 'Used', 'Remaining', 'Duration', 'Status']
